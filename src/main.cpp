@@ -8,7 +8,7 @@
 #include <vector>
 
 int main() {
-    sf::RenderWindow window{{800, 600}, "Arkanoid - Complete"};
+    sf::RenderWindow window{{800, 600}, "Arkanoid"};
     window.setFramerateLimit(60);
 
     Paddle paddle{400, 550};
