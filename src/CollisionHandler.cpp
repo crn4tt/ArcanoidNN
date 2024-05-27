@@ -22,9 +22,11 @@ void CollisionHandler::handleCollisions(Ball& ball, Paddle& paddle, std::vector<
             ball.velocity.y = -ball.velocity.y;
             score += 10;
 
-            ball.velocity.x *= 1.02f;
-            ball.velocity.y *= 1.02f;
-
+            if (block->destroyed) {
+                ball.velocity.x *= 1.02f;
+                ball.velocity.y *= 1.02f;
+            }
+            
             if (rand() % 6 == 0) {
                 bonuses.push_back(Bonus(block->shape.getPosition(), Bonus::Type::SlowDown));
             } else if (block->destroyed && !block->falling && rand() % 3 == 0) {
