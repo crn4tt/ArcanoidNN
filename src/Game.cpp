@@ -1,11 +1,8 @@
-// Game.cpp
-
 #include "Game.h"
 
-Game::Game() : window(sf::VideoMode(800, 600), "Arkanoid - Copilot Edition"), paddle(400, 550), ball(400, 300), score(0), gameOver(false) {
+Game::Game() : window(sf::VideoMode(800, 600), "Arkanoid"), paddle(400, 550), ball(400, 300), score(0), gameOver(false) {
     window.setFramerateLimit(60);
     if(!font.loadFromFile("PionerSans-Bold.ttf")) {
-        // Обработка ошибки загрузки шрифта
     }
     text.setFont(font);
     text.setCharacterSize(30);
@@ -25,7 +22,6 @@ void Game::run() {
 }
 
 void Game::initialize() {
-    // Инициализация игровых объектов и переменных
     blocks.clear();
     bonuses.clear();
     score = 0;
@@ -48,7 +44,6 @@ void Game::processEvents() {
         if (event.type == sf::Event::Closed) {
             window.close();
         }
-        // Обработка других событий, таких как нажатие клавиш для паузы или рестарта
     }
 }
 
@@ -66,7 +61,6 @@ void Game::render() {
     if(gameOver) {
         text.setString("Game Over! Score: " + std::to_string(score));
         window.draw(text);
-        // Предложение рестарта игры
     } else {
         for(const auto& block : blocks) {
             if(!block->destroyed)
@@ -83,9 +77,8 @@ void Game::render() {
 }
 
 void Game::restart() {
-    // Сброс игровых объектов и переменных для рестарта игры
-    initialize(); // Переинициализация игры
-    ball.shape.setPosition(400, 300); // Сброс позиции мяча
-    paddle.shape.setPosition(400, 550); // Сброс позиции ракетки
-    ball.velocity = {-4.0f, -4.0f}; // Сброс скорости мяча
+    initialize(); 
+    ball.shape.setPosition(400, 300); 
+    paddle.shape.setPosition(400, 550); 
+    ball.velocity = {-4.0f, -4.0f}; 
 }
