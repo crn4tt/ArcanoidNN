@@ -9,7 +9,7 @@ Game::Game() : window(sf::VideoMode(800, 600), "Arkanoid"), paddle(400, 550), ba
     text.setFillColor(sf::Color::Red);
     text.setPosition(300, 300);
     initialize();
-}
+}https://confluence.moscow.alfaintra.net/pages/viewpage.action?spaceKey=AAA&title=Welcome+page
 
 void Game::run() {
     while (window.isOpen()) {
